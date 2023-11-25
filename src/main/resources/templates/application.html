@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+</head>
+<body>
+
+<style>
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  .registration-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+  }
+
+  .registration-container h2 {
+      color: #333;
+  }
+
+  .registration-form {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+  }
+
+  .form-group label {
+      margin-bottom: 5px;
+      color: #555;
+  }
+
+  .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+  }
+
+  .form-group button {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .form-group button:hover {
+      background-color: #0056b3;
+  }
+
+  .error_form_text{
+    color:red;
+
+  }
+</style>
+
+<div class="registration-container">
+  <h2 th:text="${pageTitle}">Registration Form</h2>
+  <form class="registration-form" th:action="@{/application/submit}" method="post">
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullname" name="fullName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <select id="country" name="country" required>
+        <option value="RUSSIA">🇷🇺 Russia</option>
+        <option value="AFRICA">🇿🇦 Africa</option>
+        <option value="MOLDOVA">🇲🇩 Moldova</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="aboutMe">About Me:</label>
+      <textarea id="aboutMe" name="aboutMe" rows="4"></textarea>
+    </div>
+
+    <p th:text="${errorResponseText}" class="error_form_text"></p>
+
+    <div class="form-group">
+      <button type="submit" th:text="${submitButton}">Register</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
