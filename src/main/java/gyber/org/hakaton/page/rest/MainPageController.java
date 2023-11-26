@@ -46,7 +46,7 @@ public class MainPageController {
 
     @PostMapping("/application/submit")
     public String proccessApplication(
-            @RequestParam("email") @ValidateRegistrationFields @NotBlank  @Email String email ,
+            @RequestParam("email") @NotBlank  @Email String email ,
             @RequestParam("fullName") @ValidateRegistrationFields @NotBlank  String fullName ,
             @RequestParam("aboutMe") @ValidateRegistrationFields String aboutMe ,
             @RequestParam("country") @ValidateRegistrationFields @NotBlank String country , Model model
