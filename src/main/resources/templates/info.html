@@ -12,52 +12,35 @@
         margin: 0;
         font-family: Arial, sans-serif;
         background-color:#2C333A;
-
     }
 
 
 
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: #24292e;
-        padding: 10px;
-        text-align: center;
-        margin:15px auto;
-        border-radius:10px;
-        margin-left: 10px;
-        margin-right:10px;
-
-
-    }
-
-    nav a {
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-        margin: 0 50px;
-    }
-
-    nav a:hover {
-        background-color: #555;
-    }
-
-     .page-description {
+.page-description {
             color : white;
 
-            margin:20px auto;
+            margin:10px auto;
 
 
 
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
             background-color: #24292e;
 
             text-align:center;
-            margin-top:2px;
+            margin-top:10px;
 
 
             width:1000px;
+     }
+
+     .page-description p {
+      margin:20px;
+
+     }
+
+     .page-description h3 {
+       margin:20px;
      }
 
 
@@ -113,31 +96,46 @@
 
     }
 
-    .footer_block{
-      background-color: #24292e;
-      margin : 2px auto;
-      width:1045px;
-      border-radius:10px;
+    .submit_btn{
+       width:200px;
+       height:50px;
+       border-radius:7px;
+       text-transform:uppercase;
 
-
+       background-color:#2C333A;
+       color:white;
+       margin-top:20px;
 
 
     }
 
 
 
-    @media (max-width: 768px) {
+
+
+
+
+    @media screen and (max-width: 1000px) {
 
 
 
             nav {
                 flex-direction: column;
                 border-radius: 10px;
-                margin: 2px;
+                margin: 20px auto;
+                width:95%;
+                font-size:50px;
+                text-transform:uppercase;
+                background-color:#2C333A;
+
             }
 
             nav a {
-                margin: 5px 0;
+                margin: 5px 20px;
+                background-color:#24292e;
+                border-radius:10px;
+                height:80px;
+
             }
 
             .page-description {
@@ -146,15 +144,13 @@
             }
 
             .footer_block{
-
                  margin: 4px;
                  width:98%;
-
             }
 
             .links{
                flex-direction: row;
-
+               width:95%;
 
             }
 
@@ -165,6 +161,33 @@
 
             }
 
+            .page-description {
+                font-size:40px;
+                margin 2px auto;
+
+            }
+
+            .page-description p  {
+                margin:30px;
+
+            }
+             .page-description h3 {
+                margin:30px;
+
+            }
+
+            .submit_btn{
+
+               width:400px;
+               height:130px;
+              font-size:40px;
+              border-radius:15px;
+
+
+
+            }
+
+
 
 
 
@@ -172,70 +195,88 @@
 </style>
 
 
-    <header></header>
-    <nav>
-        <a href="#">Info</a>
-        <a href="#">Participate</a>
-        <a href="#">Projects</a>
-        <a href="#">Links</a>
-    </nav>
-
-    <div class="page-description">
-        <p>
 
 
-           <h3 class="welcome_text"> Gybernaty Hackathon: Exploring Decentralized Technologies and Web 3.0 </h3>
 
-        <p class="welcome_about_text">
+
+<div class="page-description">
+    <p>
+
+
+    <h3 class="welcome_text"> Gybernaty Hackathon: Exploring Decentralized Technologies and Web 3.0 </h3>
+
+    <p class="welcome_about_text">
         <b>Welcome to the Gybernaty Hackathon page</b> – an event focused on advancing decentralized technologies and web 3.0. This hackathon provides a unique opportunity for participants to bring their ideas to life and contribute to shaping the future of the digital world.
-        </p>
-          <p class="about_hakaton">
-           <h3 class="about_gybernaty_hakaton_text"> About Gybernaty hakaton:</h3>
+    </p>
+    <br>
+    <p class="about_hakaton">
+    <h3 class="about_gybernaty_hakaton_text"> About Gybernaty hakaton:</h3>
 
-            <p class="main_about_hakaton_page">
-             Gybernaty Hakaton is a platform where participants can choose from several projects presented at the hackathon. Here, you can either independently bring your ideas to life or join teams for collaborative project implementation. We are looking for enthusiasts ready to take on the challenge and create something unique in the world of decentralized technologies.
-            </p>
-          </p>
-           <h3 class="how_participate_text"> How to Participate: </h3>
+    <p class="main_about_hakaton_page">
+        Gybernaty Hakaton is a platform where participants can choose from several projects presented at the hackathon. Here, you can either independently bring your ideas to life or join teams for collaborative project implementation. We are looking for enthusiasts ready to take on the challenge and create something unique in the world of decentralized technologies.
+    </p>
+    </p>
+    <br>
+    <h3 class="how_participate_text"> How to Participate: </h3>
 
-           <p class="main_participate_block_text">
-            To become a participant in the hackathon, you need to submit an application. After reviewing your application, we will provide you with several projects to choose from. You select the one that resonates with you, join a team, or start your independent development.
-           </p>
-        <h3 class="development_proccess_text">Development Process:</h3>
+    <p class="main_participate_block_text">
+        To become a participant in the hackathon, you need to submit an application. After reviewing your application, we will provide you with several projects to choose from. You select the one that resonates with you, join a team, or start your independent development.
+    </p>
+    <br>
+    <h3 class="development_proccess_text">Development Process:</h3>
 
-           <p class="development_proccess_main_text">
-            The chosen project involves creating a repository in our organization specifically for you or your team. The development timelines depend on the specific project and range from 1 to 2 months. During this time, you are free to showcase your talents, creativity, and technical skills.
-           </p>
+    <p class="development_proccess_main_text">
+        The chosen project involves creating a repository in our organization specifically for you or your team. The development timelines depend on the specific project and range from 1 to 2 months. During this time, you are free to showcase your talents, creativity, and technical skills.
+    </p>
 
-        <h3 class="project_presentation_text">Project Presentation and Awards:</h3>
+    <br>
+    <h3 class="project_presentation_text">Project Presentation and Awards:</h3>
 
-          <p class="project_presentation_main_text">
-            Upon the completion of the development period, participants present their projects to the jury. The top participants receive the status of a developer in the Gybernaty community, along with our signature GBR coin. However, the most significant reward is the valuable experience gained from real-world projects, beneficial for your career.
-          </p>
+    <p class="project_presentation_main_text">
+        Upon the completion of the development period, participants present their projects to the jury. The top participants receive the status of a developer in the Gybernaty community, along with our signature GBR coin. However, the most significant reward is the valuable experience gained from real-world projects, beneficial for your career.
+    </p>
 
-            <p class="footer_text">
-            Join the Gybernaty Hackathon to be a part of the innovative movement in the world of decentralized technologies!
-            </p>
-        </p>
-    </div>
+    <br>
 
+    <p class="footer_text">
+        Join the Gybernaty Hackathon to be a part of the innovative movement in the world of decentralized technologies!
+    </p>
+    </p>
 
-
-    <footer>
-        <div class="footer_block">
-
-            <nav class="links">
-                <a href="https://vk.com/themacroeconomicdao">VK</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-                <a href="https://discord.gg/f9KFw6SY">Discord</a>
-            </nav>
-
-        </div>
-
-    </footer>
+    <br>
+    <br>
 
 
+    <hr width="610px">
+
+
+        <br>
+        <button class="submit_btn" type="submit" id="submit" onclick="click();">
+            Submit
+        </button>
+        <br>
+    <br>
+
+<!--    <footer>-->
+<!--        <nav class="footer_nav">-->
+<!--            <a href="#">VK</a>-->
+<!--            <a href="#">Instagram</a>-->
+<!--            <a href="#">Twitter</a>-->
+<!--            <a href="#">Telegram </a>-->
+<!--            <a href="#">Git</a>-->
+<!--        </nav>-->
+
+<!--    </footer>-->
+
+
+
+
+</div>
+
+
+
+
+<script src="script.js"></script>
 
 
 </body>
