@@ -37,6 +37,12 @@ public class MainPageController {
 
     }
 
+    @GetMapping("/get")
+    public String getOk(){
+        this.databaseController.getApplication(1L);
+        return "Hi";
+    }
+
     @PostMapping("/application/submit")
     public String proccessApplication(
             @RequestParam("email") @NotBlank  @Email String email ,
