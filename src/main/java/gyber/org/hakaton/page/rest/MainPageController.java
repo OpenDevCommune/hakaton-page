@@ -19,9 +19,15 @@ public class MainPageController {
     @Autowired
     private DatabaseController databaseController;
 
+
+    @GetMapping("/")
+    public String rootGet(){
+        return "redirect:info";
+
+    }
+
     @GetMapping("/info")
-    public String greeting(Model model){
-        model.addAttribute("name" , "Nick");
+    public String greeting(){
         return "info";
     }
 
@@ -64,7 +70,6 @@ public class MainPageController {
             return "application";
         }
         else {
-            System.out.println("\n\n USER SUCCESSFUL SAVED \n\n");
             return "success";
         }
 
