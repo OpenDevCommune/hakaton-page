@@ -28,6 +28,15 @@ public class ApplicationForParticipation {
     }
 
 
+    public ApplicationForParticipation(Long id, LocalDateTime dateToSentForm, String nameUser, String emailUser, String aboutUser, String country) {
+        this.id = id;
+        this.dateToSentForm = dateToSentForm;
+        this.nameUser = nameUser;
+        this.emailUser = emailUser;
+        this.aboutUser = aboutUser;
+        this.country = country;
+    }
+
     public ApplicationForParticipation(){}
     public Long getId() {
         return id;
@@ -75,5 +84,18 @@ public class ApplicationForParticipation {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+
+    @Override
+    public String toString() {
+        return "ApplicationForParticipation{" +
+                "id=" + id +
+                ", dateToSentForm=" + dateToSentForm +
+                ", nameUser='" + nameUser + '\'' +
+                ", emailUser='" + emailUser + '\'' +
+                ", aboutUser='" + aboutUser + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }
