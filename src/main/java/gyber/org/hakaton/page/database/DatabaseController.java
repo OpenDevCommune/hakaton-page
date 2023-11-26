@@ -57,7 +57,7 @@ public class DatabaseController {
 
 
 
-    public boolean getApplication(Long applicationId){
+    public ApplicationForParticipation getApplication(Long applicationId){
 
       ApplicationForParticipation getApp =
         jdbcTemplate.query(
@@ -74,7 +74,7 @@ public class DatabaseController {
 
 
 
-        return false;
+        return getApp;
     }
 
     public boolean updateApplication(){
