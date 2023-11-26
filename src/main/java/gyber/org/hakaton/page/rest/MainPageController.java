@@ -2,6 +2,7 @@ package gyber.org.hakaton.page.rest;
 
 import gyber.org.hakaton.page.database.DatabaseController;
 import gyber.org.hakaton.page.profile.ApplicationForParticipation;
+import gyber.org.hakaton.page.validation.ValidateRegistrationFields;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,10 @@ public class MainPageController {
 
     @PostMapping("/application/submit")
     public String proccessApplication(
-            @RequestParam("email") @NotBlank  @Email String email ,
-            @RequestParam("fullName") @NotBlank  String fullName ,
-            @RequestParam("aboutMe")  String aboutMe ,
-            @RequestParam("country") @NotBlank String country , Model model
+            @RequestParam("email") @ValidateRegistrationFields @NotBlank  @Email String email ,
+            @RequestParam("fullName") @ValidateRegistrationFields @NotBlank  String fullName ,
+            @RequestParam("aboutMe") @ValidateRegistrationFields String aboutMe ,
+            @RequestParam("country") @ValidateRegistrationFields @NotBlank String country , Model model
     ){
 
         ApplicationForParticipation app = new ApplicationForParticipation(fullName , email , aboutMe , country);
