@@ -23,7 +23,6 @@ public class MainPageController {
     @GetMapping("/")
     public String rootGet(){
         return "redirect:info";
-
     }
 
     @GetMapping("/info")
@@ -36,7 +35,6 @@ public class MainPageController {
         model
                 .addAttribute("submitButton" , "Submit")
                 .addAttribute("pageTitle" , "Form");
-
 
 
         return "application";
