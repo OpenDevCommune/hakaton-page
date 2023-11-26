@@ -25,7 +25,10 @@
         text-align: center;
         margin:15px auto;
         border-radius:10px;
-        width:1015px;
+        margin-left: 10px;
+        margin-right:10px;
+
+
     }
 
     nav a {
@@ -57,13 +60,79 @@
             width:1000px;
      }
 
+
+
+     .welcome_text{
+
+     text-align:left;
+
+     }
+
+     .welcome_about_text{
+        text-align:justify;
+     }
+
+     .about_gybernaty_hakaton_text{
+       text-align:left;
+
+     }
+
+     .main_about_hakaton_page{
+        text-align:justify;
+     }
+
+
+     .main_participate_block_text{
+       text-align:justify;
+     }
+
+     .how_participate_text{
+        text-align:left;
+
+     }
+
+    .development_proccess_text{
+       text-align:left;
+
+    }
+
+    .development_proccess_main_text{
+        text-align:justify;
+    }
+
+    .project_presentation_text{
+       text-align:left;
+    }
+
+    .project_presentation_main_text{
+       text-align:justify;
+    }
+
+    .footer_text{
+        text-align:justify;
+
+    }
+
+    .footer_block{
+      background-color: #24292e;
+      margin : 2px auto;
+      width:1045px;
+      border-radius:10px;
+
+
+
+
+    }
+
+
+
     @media (max-width: 768px) {
 
 
 
             nav {
                 flex-direction: column;
-                border-radius: 5px;
+                border-radius: 10px;
                 margin: 2px;
             }
 
@@ -72,11 +141,33 @@
             }
 
             .page-description {
-                   margin: 2px;
+                   margin: 2px auto;
                    width:90%;
+            }
+
+            .footer_block{
+
+                 margin: 4px;
+                 width:98%;
+
+            }
+
+            .links{
+               flex-direction: row;
 
 
             }
+
+            .links a{
+
+                margin: 0 0 2px;
+
+
+            }
+
+
+
+
         }
 </style>
 
@@ -90,8 +181,61 @@
     </nav>
 
     <div class="page-description">
-        <p>This is the description of the page. It has some content with a bit of margin and rounded corners.</p>
+        <p>
+
+
+           <h3 class="welcome_text"> Gybernaty Hackathon: Exploring Decentralized Technologies and Web 3.0 </h3>
+
+        <p class="welcome_about_text">
+        <b>Welcome to the Gybernaty Hackathon page</b> – an event focused on advancing decentralized technologies and web 3.0. This hackathon provides a unique opportunity for participants to bring their ideas to life and contribute to shaping the future of the digital world.
+        </p>
+          <p class="about_hakaton">
+           <h3 class="about_gybernaty_hakaton_text"> About Gybernaty hakaton:</h3>
+
+            <p class="main_about_hakaton_page">
+             Gybernaty Hakaton is a platform where participants can choose from several projects presented at the hackathon. Here, you can either independently bring your ideas to life or join teams for collaborative project implementation. We are looking for enthusiasts ready to take on the challenge and create something unique in the world of decentralized technologies.
+            </p>
+          </p>
+           <h3 class="how_participate_text"> How to Participate: </h3>
+
+           <p class="main_participate_block_text">
+            To become a participant in the hackathon, you need to submit an application. After reviewing your application, we will provide you with several projects to choose from. You select the one that resonates with you, join a team, or start your independent development.
+           </p>
+        <h3 class="development_proccess_text">Development Process:</h3>
+
+           <p class="development_proccess_main_text">
+            The chosen project involves creating a repository in our organization specifically for you or your team. The development timelines depend on the specific project and range from 1 to 2 months. During this time, you are free to showcase your talents, creativity, and technical skills.
+           </p>
+
+        <h3 class="project_presentation_text">Project Presentation and Awards:</h3>
+
+          <p class="project_presentation_main_text">
+            Upon the completion of the development period, participants present their projects to the jury. The top participants receive the status of a developer in the Gybernaty community, along with our signature GBR coin. However, the most significant reward is the valuable experience gained from real-world projects, beneficial for your career.
+          </p>
+
+            <p class="footer_text">
+            Join the Gybernaty Hackathon to be a part of the innovative movement in the world of decentralized technologies!
+            </p>
+        </p>
     </div>
+
+
+
+    <footer>
+        <div class="footer_block">
+
+            <nav class="links">
+                <a href="https://vk.com/themacroeconomicdao">VK</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="https://discord.gg/f9KFw6SY">Discord</a>
+            </nav>
+
+        </div>
+
+    </footer>
+
+
 
 
    <p th:text="|Hello, ${name}!|" />
