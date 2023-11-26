@@ -10,6 +10,6 @@ public class RegistrationFieldsValidator implements ConstraintValidator<Validate
 
     @Override
     public boolean isValid(String registrationField, ConstraintValidatorContext constraintValidatorContext) {
-        return registrationField.matches("^[a-zA-Z0-9]+$");
+        return registrationField.matches("^[a-zA-Z]+$");
     }
 }
