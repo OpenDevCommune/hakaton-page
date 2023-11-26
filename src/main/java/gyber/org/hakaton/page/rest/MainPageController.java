@@ -22,7 +22,7 @@ public class MainPageController {
     @GetMapping("/info")
     public String greeting(Model model){
         model.addAttribute("name" , "Nick");
-        return "hello";
+        return "info";
     }
 
     @GetMapping("/form")
