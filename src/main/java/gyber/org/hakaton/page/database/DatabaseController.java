@@ -5,9 +5,7 @@ import gyber.org.hakaton.page.profile.ApplicationForParticipation;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Controller;
 
 import java.time.Instant;
@@ -49,7 +47,7 @@ public class DatabaseController {
        int isSuccessful =   jdbcTemplate
                             .update("" +
                                     "INSERT INTO applications (email_user, name_user, about_me, language) \n" +
-                                    "VALUES (?, ?, ?, ?);\n" , app.getEmailUser() , app.getNameUser() , app.getAboutUser() , app.getCountry());
+                                    "VALUES (?, ?, ?, ?);\n" , app.getEmailUser() , app.getNameUser() , app.getAboutUser() , app.getLanguage());
 
 
         return true;

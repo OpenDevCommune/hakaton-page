@@ -1,7 +1,5 @@
 package gyber.org.hakaton.page.profile;
 
-import lombok.*;
-
 import java.time.LocalDateTime;
 
 public class ApplicationForParticipation {
@@ -16,25 +14,25 @@ public class ApplicationForParticipation {
 
     private String aboutUser;
 
-    private String country;
+    private String language;
 
 
-    public ApplicationForParticipation(String nameUser, String emailUser, String aboutUser , String country) {
+    public ApplicationForParticipation(String nameUser, String emailUser, String aboutUser , String language) {
         this.dateToSentForm = LocalDateTime.now();
         this.nameUser = nameUser;
         this.emailUser = emailUser;
         this.aboutUser = aboutUser;
-        this.country = country;
+        this.language = language;
     }
 
 
-    public ApplicationForParticipation(Long id, LocalDateTime dateToSentForm, String nameUser, String emailUser, String aboutUser, String country) {
+    public ApplicationForParticipation(Long id, LocalDateTime dateToSentForm, String nameUser, String emailUser, String aboutUser, String language) {
         this.id = id;
         this.dateToSentForm = dateToSentForm;
         this.nameUser = nameUser;
         this.emailUser = emailUser;
         this.aboutUser = aboutUser;
-        this.country = country;
+        this.language = language;
     }
 
     public ApplicationForParticipation(){}
@@ -78,12 +76,12 @@ public class ApplicationForParticipation {
         this.aboutUser = aboutUser;
     }
 
-    public String getCountry() {
-        return country;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
 
@@ -95,7 +93,7 @@ public class ApplicationForParticipation {
                 ", nameUser='" + nameUser + '\'' +
                 ", emailUser='" + emailUser + '\'' +
                 ", aboutUser='" + aboutUser + '\'' +
-                ", country='" + country + '\'' +
+                ", country='" + language + '\'' +
                 '}';
     }
 }
