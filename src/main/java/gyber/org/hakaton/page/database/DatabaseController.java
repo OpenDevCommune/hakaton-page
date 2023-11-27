@@ -34,7 +34,7 @@ public class DatabaseController {
                         "    id INT AUTO_INCREMENT PRIMARY KEY,\n" +
                         "    name_user VARCHAR(255),\n" +
                         "    email_user VARCHAR(255) UNIQUE,\n" +
-                        "    country VARCHAR(255),\n" +
+                        "    language VARCHAR(255),\n" +
                         "    about_me TEXT,\n" +
                         "    date_sent_form TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n" +
                         ");");
@@ -48,7 +48,7 @@ public class DatabaseController {
 
        int isSuccessful =   jdbcTemplate
                             .update("" +
-                                    "INSERT INTO applications (email_user, name_user, about_me, country) \n" +
+                                    "INSERT INTO applications (email_user, name_user, about_me, language) \n" +
                                     "VALUES (?, ?, ?, ?);\n" , app.getEmailUser() , app.getNameUser() , app.getAboutUser() , app.getCountry());
 
 
@@ -61,7 +61,7 @@ public class DatabaseController {
 
       ApplicationForParticipation getApp =
         jdbcTemplate.query(
-                "SELECT id , date_sent_form ,  email_user , name_user , country , about_me FROM applications WHERE id = ?" ,
+                "SELECT id , date_sent_form ,  email_user , name_user , language , about_me FROM applications WHERE id = ?" ,
                 (rs , rowNum) -> new ApplicationForParticipation(
                         rs.getLong("id") ,
                         Instant.ofEpochMilli(rs.getDate("date_sent_form").getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime(),
