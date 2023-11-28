@@ -66,7 +66,7 @@ public class DatabaseController {
                         rs.getString("name_user") ,
                         rs.getString("email_user") ,
                         rs.getString("about_me") ,
-                        rs.getString("country")) ,
+                        rs.getString("language")) ,
                 applicationId
         ).get(0);
 
@@ -75,8 +75,19 @@ public class DatabaseController {
         return getApp;
     }
 
-    public boolean updateApplication(){
-        return false;
+    public boolean updateApplication(Long appId , ApplicationForParticipation app){
+
+        int result =
+        jdbcTemplate.update("UPDATE applications SET name_user= ? , email_user= ? , about_me= ? , language= ? WHERE id = ?;" ,
+                app.getNameUser() ,
+                app.getEmailUser() ,
+                app.getAboutUser() ,
+                app.getLanguage() ,
+                app.getId()
+        );
+
+
+        return result == 0;
     }
 
 
