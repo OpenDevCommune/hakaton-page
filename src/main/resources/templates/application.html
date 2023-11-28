@@ -67,10 +67,7 @@
       background-color: #0056b3;
   }
 
-  .error_form_text{
-    color:red;
 
-  }
 </style>
 
 <div class="registration-container">
@@ -100,9 +97,13 @@
 
     <p th:text="${errorResponseText}" class="error_form_text"></p>
 
+
     <div class="form-group">
       <button type="submit" th:text="${submitButton}">Register</button>
     </div>
+
+     <p th:text="${errorText}" class="error_text"></p>
+
   </form>
 </div>
 </body>
