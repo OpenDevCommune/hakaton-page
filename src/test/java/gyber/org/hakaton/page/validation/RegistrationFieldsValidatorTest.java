@@ -47,4 +47,22 @@ public class RegistrationFieldsValidatorTest {
         String registrationField = "!@#$%";
         assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
     }
+
+    @Test
+    public void isValidShouldReturnFalseForStringWithOnlyNumbers() {
+        String registrationField = "123421";
+        assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
+    }
+
+    @Test
+    public void isValidShouldReturnFalseForStringWithBackSpaceAndNumbers() {
+        String registrationField = "My name321 is Test323";
+        assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
+    }
+
+    @Test
+    public void isValidShouldReturnFalseForStringWithSpecialCharactersAndNumbers() {
+        String registrationField = "23142!?:*";
+        assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
+    }
 }
