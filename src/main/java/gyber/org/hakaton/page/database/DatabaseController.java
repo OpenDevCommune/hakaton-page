@@ -75,6 +75,9 @@ public class DatabaseController {
         return getApp;
     }
 
+    /*
+     TODO : метод , не работает , выяснить почему
+     */
     public boolean updateApplication(Long appId , ApplicationForParticipation app){
 
         int result =
@@ -91,8 +94,10 @@ public class DatabaseController {
     }
 
 
-    public  boolean deleteApplication(){
-        return false;
+    public  boolean deleteApplication(Long appId){
+
+        jdbcTemplate.update("DELETE FROM applications WHERE id = ?" , appId);
+        return true;
     }
 
 }
