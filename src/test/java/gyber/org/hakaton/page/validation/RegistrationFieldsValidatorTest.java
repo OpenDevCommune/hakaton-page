@@ -35,4 +35,16 @@ public class RegistrationFieldsValidatorTest {
         String registrationField = "My name is Test";
         assertTrue(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
     }
+
+    @Test
+    public void isValidShouldReturnFalseForStringWithBackSpaceAndSpecialCharacters() {
+        String registrationField = "My name%^$# is Test*&$#";
+        assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
+    }
+
+    @Test
+    public void isValidShouldReturnFalseForStringWithOnlySpecialCharacters() {
+        String registrationField = "!@#$%";
+        assertFalse(registrationFieldsValidator.isValid(registrationField, constraintValidatorContext));
+    }
 }
