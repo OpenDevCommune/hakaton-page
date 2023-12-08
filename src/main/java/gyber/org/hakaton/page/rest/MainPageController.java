@@ -31,6 +31,7 @@ public class MainPageController {
         return "info";
     }
 
+
     @GetMapping("/form")
     public String getForm(Model model){
         model
