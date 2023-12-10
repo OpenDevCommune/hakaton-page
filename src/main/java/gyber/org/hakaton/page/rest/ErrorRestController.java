@@ -19,4 +19,11 @@ public class ErrorRestController {
         return "application";
 
     }
+
+    @GetMapping("/404")
+    public String get404Page(){
+
+        return "404";
+
+    }
 }
