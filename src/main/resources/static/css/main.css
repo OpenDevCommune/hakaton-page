@@ -300,6 +300,79 @@ textarea {
 .error_form_msg {
     color: red;
 }
+.not_found {
+
+}
+.not_found h1 {
+    font-size: 80px;
+    font-weight: 500;
+    text-align: center;
+}
+.not_found h2 {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+.not_found p {
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.not_found p a {
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--c-orange);
+}
+.not_found p a:hover {
+    color: #d4b432;
+}
+
+.success__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.success__logo span {
+    margin-left: 10px;
+    color: var(--c-grey);
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.success h1 {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--c-orange);
+}
+.success h2 {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--c-grey);
+}
+.success p {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--c-grey);
+}
+
+.success p a {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--c-blue);
+}
+.success p a:hover {
+    color: #77bcf6;
+}
 
 @media screen and (max-width: 576px) {
     .slider {
@@ -343,7 +416,7 @@ textarea {
         padding: var(--fs-1);
         grid-template-columns: 30px 1fr;
         grid-template-areas:
-          'logo social '
+          'logo social'
           '. copyright';
     }
     .footer__logo span {
@@ -388,7 +461,6 @@ textarea {
     }
     .footer__wrapper {
         padding: var(--fs-1);
-        grid-template-columns: 30px 1fr 1fr;
     }
     .footer__logo span {
         display: none;
