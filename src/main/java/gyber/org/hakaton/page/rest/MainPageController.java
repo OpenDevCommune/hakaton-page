@@ -1,10 +1,8 @@
 package gyber.org.hakaton.page.rest;
 
 import gyber.org.hakaton.page.database.DatabaseController;
+import gyber.org.hakaton.page.mail.MailServerClass;
 import gyber.org.hakaton.page.profile.ApplicationForParticipation;
-import gyber.org.hakaton.page.validation.ValidateRegistrationFields;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +19,10 @@ public class MainPageController {
 
     @Autowired
     private DatabaseController databaseController;
+
+    @Autowired
+    private MailServerClass mailServerClass;
+
 
     private Logger logger = Logger.getLogger("MainPageController");
 
@@ -53,10 +55,10 @@ public class MainPageController {
 
     @PostMapping("/application/submit")
     public String proccessApplication(
-            @RequestParam("email") @NotBlank  @Email String email ,
-            @RequestParam("fullName") @ValidateRegistrationFields @NotBlank  String fullName ,
-            @RequestParam("aboutMe") @ValidateRegistrationFields String aboutMe ,
-            @RequestParam("country") @ValidateRegistrationFields @NotBlank String country , Model model
+            @RequestParam("email")  String email ,
+            @RequestParam("fullName")   String fullName ,
+            @RequestParam("aboutMe") String aboutMe ,
+            @RequestParam("country")  String country , Model model
     ){
 
         logger.info("POST IN '/application/submit'. CREATE APPLICATION ... ");
@@ -72,7 +74,13 @@ public class MainPageController {
             return "error_page";
         }
         else {
-            logger.info("APPLICATION SAVE SUCCESSFUL");
+            logger.info("APPLICATION SAVE SUCCESSFUL. SENT BY E-MAIL ... ");
+
+
+
+            mailServerClass.sendMail(email, fullName);
+
+
             return "success";
         }
 
