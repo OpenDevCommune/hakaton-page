@@ -31,6 +31,7 @@ public class MainPageController {
         return "info";
     }
 
+
     @GetMapping("/form")
     public String getForm(Model model){
         model
@@ -57,12 +58,8 @@ public class MainPageController {
 
         if (!result) {
             System.out.println("\n\n ERROR TO SAVE USER \n\n");
-            model
-                    .addAttribute("submitButton" , "Submit")
-                    .addAttribute("pageTitle" , "Form")
-                    .addAttribute("errorResponseText", "Error save your data , please try again");
 
-            return "application";
+            return "error_page";
         }
         else {
             return "success";
@@ -70,4 +67,6 @@ public class MainPageController {
 
 
     }
+
+
 }
