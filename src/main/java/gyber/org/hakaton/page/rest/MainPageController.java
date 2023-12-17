@@ -8,10 +8,12 @@ import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Controller
 public class MainPageController {
@@ -20,9 +22,13 @@ public class MainPageController {
     @Autowired
     private DatabaseController databaseController;
 
+    private Logger logger = Logger.getLogger("MainPageController");
+
 
     @GetMapping("/")
     public String rootGet(){
+
+        logger.info("ROOT REDIRECT TO '/info'");
         return "redirect:info";
     }
 
@@ -53,15 +59,20 @@ public class MainPageController {
             @RequestParam("country") @ValidateRegistrationFields @NotBlank String country , Model model
     ){
 
+        logger.info("POST IN '/application/submit'. CREATE APPLICATION ... ");
+
         ApplicationForParticipation app = new ApplicationForParticipation(fullName , email , aboutMe , country);
+
+        logger.info("APPLICATION CREATE SUCCESSFUL. PASSING CONTROL TO THE DATABASE MODULE...");
         boolean result = databaseController.saveApplication(app);
 
         if (!result) {
-            System.out.println("\n\n ERROR TO SAVE USER \n\n");
+           logger.log(Level.SEVERE , "ERROR SAVE APPLICATION IN DATABASE. RETURN error_page");
 
             return "error_page";
         }
         else {
+            logger.info("APPLICATION SAVE SUCCESSFUL");
             return "success";
         }
 
