@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
 public class MailServerClass {
 
 
-    @Autowired
+    @Autowired(required = false)
     private JavaMailSenderImpl javaMailSender;
 
     @Autowired
@@ -32,7 +33,12 @@ public class MailServerClass {
 
 
     public void init() throws MessagingException {
-        javaMailSender.testConnection();
+        if (javaMailSender == null){
+            logger.warning("THE SERVER IS IN TEST MODE. SENDING EMAILS IS DISABLED");
+            return;
+        }
+        logger.info("MAIL SERVER IS ACTIVE");
+
     }
 
 
@@ -78,6 +84,7 @@ public class MailServerClass {
 
 
 @Configuration
+@Profile("prod")
 class MailServiceConfigClass{
 
     @Value("${SMTP_HOST}")
