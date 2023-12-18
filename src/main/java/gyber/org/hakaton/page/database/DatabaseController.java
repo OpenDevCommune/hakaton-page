@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 
 import java.time.Instant;
 import java.time.ZoneId;
+import java.util.logging.Logger;
 
 @Controller
 public class DatabaseController {
@@ -20,11 +21,16 @@ public class DatabaseController {
     @Autowired
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    private Logger logger = Logger.getLogger("DatabaseController");
+
 
 
 
     @PostConstruct
     public void initDataBaseStructure(){
+
+        logger.info("INIT DATABASE STRUCTURE ... CREATE DATABASE ... ");
+
 
         jdbcTemplate
                 .execute("" +
@@ -37,6 +43,8 @@ public class DatabaseController {
                         "    date_sent_form TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n" +
                         ");");
 
+        logger.info("DATABASE STRUCTURE CREATE SUCCESSFUL. INIT SUCCESSFUL");
+
     }
 
 
@@ -44,11 +52,14 @@ public class DatabaseController {
 
     public boolean saveApplication(ApplicationForParticipation app){
 
+        logger.info("REQUEST TO SAVE APPLICATION IN DATABASE. CREATE AND EXECUTE QUERY ... ");
+
        int isSuccessful =   jdbcTemplate
                             .update("" +
                                     "INSERT INTO applications (email_user, name_user, about_me, language) \n" +
                                     "VALUES (?, ?, ?, ?);\n" , app.getEmailUser() , app.getNameUser() , app.getAboutUser() , app.getLanguage());
 
+       logger.info("APPLICATION SAVE SUCCESSFUL. RETURN CONTROL");
 
         return true;
     }
