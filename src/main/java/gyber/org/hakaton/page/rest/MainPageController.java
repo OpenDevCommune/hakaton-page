@@ -1,12 +1,10 @@
 package gyber.org.hakaton.page.rest;
 
-import gyber.org.hakaton.page.database.DatabaseControllerDev;
+import gyber.org.hakaton.page.database.DatabaseController;
 import gyber.org.hakaton.page.mail.MailServerClass;
 import gyber.org.hakaton.page.profile.ApplicationForParticipation;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +19,7 @@ public class MainPageController {
 
 
     @Autowired
-    private DatabaseControllerDev databaseControllerDev;
+    private DatabaseController databaseController;
 
     @Autowired
     private MailServerClass mailServerClass;
@@ -71,7 +69,7 @@ public class MainPageController {
 
         logger.info("CHECKING IF THE USER HAS SUBMITTED AN APPLICATION PREVIOUSLY ... ");
 
-        if (databaseControllerDev.applicationExist(email)){
+        if (databaseController.applicationExist(email)){
             logger.info("USER ALREADY EXIST. REPEATED APPLICATION IS DENIED");
 
             response.setStatus(409);
@@ -83,7 +81,7 @@ public class MainPageController {
         logger.info("USER APPLICATION IS NEW. PROCESS APPLICATION ... ");
 
         logger.info("APPLICATION CREATE SUCCESSFUL. PASSING CONTROL TO THE DATABASE MODULE...");
-        boolean result = databaseControllerDev.saveApplication(app);
+        boolean result = databaseController.saveApplication(app);
 
         if (!result) {
            logger.log(Level.SEVERE , "ERROR SAVE APPLICATION IN DATABASE. RETURN error_page");
