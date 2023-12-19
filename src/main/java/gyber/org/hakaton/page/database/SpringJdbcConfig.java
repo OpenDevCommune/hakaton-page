@@ -29,6 +29,9 @@ public class SpringJdbcConfig {
     @Value("${DATABASE_USR}")
     private String DATABASE_USR;
 
+
+
+
     @Bean
     public DataSource dataSource(){
 
@@ -48,6 +51,7 @@ public class SpringJdbcConfig {
 @Profile("dev")
 @Configuration
 class SpringTestJdbcConfig{
+
 
     @Bean
     public DataSource dataSource(){
